@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>do4you - Freelance Services</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0B0B0D">
+</head>
+<body>
+
+<button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">
+    <i class="ph ph-sun" id="theme-icon"></i>
+  </button>
+<div id="app-container">
+  <!-- Parallax Ambient Background -->
+  <div class="ambient-glow glow-1" id="ambient-1"></div>
+  <div class="ambient-glow glow-2" id="ambient-2"></div>
+  
+  <!-- Desktop Sidebar -->
+  <nav class="side-nav" id="side-nav">
+    <div class="brand-desktop">do4you<span>.</span></div>
+    
+    <button class="nav-item-desktop" onclick="navigate('dashboard', this)">
+      <i class="ph ph-squares-four"></i> Dashboard
+    </button>
+    <button class="nav-item-desktop" onclick="navigate('marketplace', this)">
+      <i class="ph ph-compass"></i> Explore Works
+    </button>
+    <button class="nav-item-desktop" onclick="navigate('post', this)">
+      <i class="ph ph-plus-circle"></i> Post New Work
+    </button>
+    <button class="nav-item-desktop" onclick="navigate('status', this)">
+      <i class="ph ph-activity"></i> Work Status
+    </button>
+    
+    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light); cursor: pointer;" class="nav-item-desktop" onclick="navigate('profile', this)">
+      <div class="flex align-center gap-2">
+        <img src="https://i.pravatar.cc/150?u=aisha" alt="Profile" class="avatar">
+        <div>
+          <p style="font-weight: 600; font-size:0.95rem; color: var(--text-primary);">Aisha Singh</p>
+          <p style="color: var(--text-secondary); font-size:0.85rem;">B.Tech CSE</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Space -->
+  <div id="main-content">
+    
+    <!-- 1. LOGIN / SIGNUP SCREEN -->
+    <div class="screen active" id="screen-login">
+      <div class="login-bg"></div>
+      <div class="clean-card text-center reveal" style="padding: 48px 32px;">
+        <h2 class="brand-mobile mb-2">do4you<span>.</span></h2>
+        <h1 class="mb-1" style="font-size: 1.8rem;">Your workflow, <br>optimized.</h1>
+        <p class="mb-3" style="color: var(--text-secondary);">The premium marketplace for Indian students.</p>
+        
+        <div class="flex flex-column gap-3 mt-3">
+          <button class="btn primary w-100" onclick="navigate('dashboard')">
+            I want to GIVE WORK
+          </button>
+          <button class="btn w-100" onclick="navigate('dashboard')">
+            I want to DO WORK
+          </button>
+          
+          <div style="margin: 16px 0; border-top: 1px solid var(--border-light); position: relative;">
+            <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--card-bg); padding: 0 16px; font-size: 0.85rem; color: var(--text-secondary);">OR</span>
+          </div>
+          
+          <button class="btn w-100" onclick="navigate('dashboard')" style="gap: 12px; border: 1px solid var(--border-light) !important;">
+            <i class="ph-fill ph-google-logo" style="color: var(--text-primary); font-size: 1.4rem;"></i> Continue with Google
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. DASHBOARD SCREEN -->
+    <div class="screen" id="screen-dashboard">
+      <div class="top-header reveal">
+        <div class="flex align-center gap-3">
+          <!-- Mobile only avatar -->
+          <img src="https://i.pravatar.cc/150?u=aisha" alt="Aisha" class="avatar" style="display:block; cursor:pointer;" id="mobile-avatar" onclick="navigate('profile')">
+          <div>
+            <h2 style="font-size: 1.6rem; color: var(--text-primary);">Hello, Aisha</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">Your activity at a glance.</p>
+          </div>
+        </div>
+        <button class="btn" style="padding: 10px; background: var(--overlay-medium); border: 1px solid var(--border-light);"><i class="ph ph-bell" style="font-size: 1.5rem; color: var(--text-primary);"></i></button>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="clean-card info-card reveal" onclick="navigate('status')">
+          <div class="icon-wrapper"><i class="ph ph-laptop"></i></div>
+          <div class="info-details w-100">
+            <div class="flex justify-between">
+              <h3>Works In Progress</h3>
+            </div>
+            <p>2 Active Tasks</p>
+          </div>
+        </div>
+
+        <div class="clean-card info-card reveal" style="transition-delay: 0.1s;">
+          <div class="icon-wrapper"><i class="ph ph-hourglass-medium"></i></div>
+          <div class="info-details w-100">
+            <div class="flex justify-between">
+              <h3>Works Pending</h3>
+            </div>
+            <p>1 waiting for approval</p>
+          </div>
+        </div>
+        
+        <div class="clean-card info-card reveal" style="transition-delay: 0.2s;">
+            <div class="icon-wrapper"><i class="ph ph-check-circle"></i></div>
+            <div class="info-details w-100">
+              <div class="flex justify-between">
+                <h3>Works Completed</h3>
+              </div>
+              <p>14 completed this semester</p>
+            </div>
+        </div>
+
+        <div class="clean-card info-card reveal" style="transition-delay: 0.3s; grid-column: 1 / -1;">
+          <div class="icon-wrapper"><i class="ph ph-wallet"></i></div>
+          <div class="info-details w-100">
+            <div class="flex justify-between">
+              <h3>Total Money Earned</h3>
+              <h3 style="color: var(--accent-glow);">₹8,450</h3>
+            </div>
+            <p>Available to withdraw instantly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. WORK MARKETPLACE SCREEN -->
+    <div class="screen" id="screen-marketplace">
+      <div class="top-header reveal">
+        <h2>Works Marketplace</h2>
+      </div>
+
+      <div class="form-group reveal" style="transition-delay: 0.1s;">
+        <input type="text" class="input-clean" placeholder="Search for PPT making, Assignments, Code formatting...">
+      </div>
+
+      <div class="marketplace-list" id="marketplace-list">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- 4. POST WORK SCREEN -->
+    <div class="screen" id="screen-post">
+      <div class="top-header reveal">
+        <h2>Post New Work</h2>
+      </div>
+
+      <div class="clean-card reveal" style="padding: 32px; transition-delay: 0.1s;">
+        <div class="form-group">
+          <label>Work Title</label>
+          <input type="text" class="input-clean" placeholder="e.g. Formatting Final Year Project Report">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select class="input-clean">
+            <option>Report Preparation</option>
+            <option>PPT Making</option>
+            <option>Assignment Writing</option>
+            <option>Word Formatting</option>
+            <option>Resume Creation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description & Requirements</label>
+          <textarea class="input-clean" style="height: 120px;" placeholder="Outline the guidelines, formatting rules, etc..."></textarea>
+        </div>
+        
+        <div class="form-group w-100">
+            <label>Upload Documents (Files/References)</label>
+            <div style="border: 2px dashed var(--border-light); border-radius: 12px; padding: 32px; text-align: center; background: var(--overlay-light); cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-glow)'" onmouseout="this.style.borderColor='var(--border-light)'">
+                <i class="ph ph-upload-simple" style="font-size: 2rem; color: var(--text-secondary); margin-bottom: 8px;"></i>
+                <p style="color: var(--text-secondary); font-size:0.9rem;">Click to upload files or drag & drop</p>
+            </div>
+        </div>
+
+        <div class="flex gap-3 mb-3">
+          <div class="form-group w-100" style="margin-bottom: 0;">
+            <label>Deadline</label>
+            <input type="date" class="input-clean">
+          </div>
+          <div class="form-group w-100" style="margin-bottom: 0;">
+            <label>Budget (₹)</label>
+            <input type="number" class="input-clean" placeholder="e.g. 500">
+          </div>
+        </div>
+        
+        <button class="btn primary w-100" style="margin-top: 16px;" onclick="alert('Work Posted Successfully!'); navigate('dashboard');">Publish Work</button>
+      </div>
+    </div>
+
+    <!-- 6. PROFILE SCREEN -->
+    <div class="screen" id="screen-profile">
+      <div class="top-header reveal">
+        <div class="flex align-center gap-3">
+          <button class="btn" onclick="navigate('dashboard')" style="padding: 10px; border-color: var(--border-light);"><i class="ph ph-arrow-left"></i></button>
+          <h2>My Profile</h2>
+        </div>
+      </div>
+
+      <div class="clean-card reveal text-center" style="padding: 40px 24px; transition-delay: 0.1s;">
+        <img src="https://i.pravatar.cc/150?u=aisha" alt="Aisha Singh" class="avatar" style="width: 120px; height: 120px; border-width: 4px; border-color: var(--accent-glow); margin-bottom: 20px;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 4px;">Aisha Singh</h3>
+        <p style="color: var(--accent-glow); font-weight: 600; margin-bottom: 16px;">B.Tech Computer Science Engineering</p>
+        <p style="color: var(--text-secondary); max-width: 400px; margin: 0 auto 24px; line-height: 1.6;">Passionate student developer, UI/UX enthusiast, and active freelancer. I specialize in assignments, presentations, and modern web development tasks.</p>
+        
+        <div class="flex justify-center gap-3 mb-3">
+            <div style="background: var(--overlay-light); padding: 16px; border-radius: 12px; min-width: 100px;">
+                <h4 style="font-size: 1.4rem; color: var(--text-primary);">4.9</h4>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">Avg Rating</p>
+            </div>
+            <div style="background: var(--overlay-light); padding: 16px; border-radius: 12px; min-width: 100px;">
+                <h4 style="font-size: 1.4rem; color: var(--text-primary);">15</h4>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">Works Done</p>
+            </div>
+            <div style="background: var(--overlay-light); padding: 16px; border-radius: 12px; min-width: 100px;">
+                <h4 style="font-size: 1.4rem; color: var(--text-primary);">₹8.4k</h4>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">Earned</p>
+            </div>
+        </div>
+
+        <button class="btn primary mt-3 w-100" style="max-width: 300px;"><i class="ph ph-pencil-simple mr-2" style="margin-right: 8px;"></i> Edit Profile</button>
+      </div>
+      
+      <div class="clean-card reveal mt-3" style="padding: 24px; transition-delay: 0.2s;">
+        <h3 class="mb-3">Recent Reviews</h3>
+        <div class="flex flex-column gap-3">
+          <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+             <div class="flex justify-between mb-1">
+                 <span style="font-weight: 600;">"Amazing PPT!"</span>
+                 <span style="color: #f5a623;"><i class="ph-fill ph-star"></i> 5.0</span>
+             </div>
+             <p style="color: var(--text-secondary); font-size: 0.9rem;">Aisha delivered a perfect DBMS presentation. Very detailed.</p>
+             <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px;">- Karan V.</p>
+          </div>
+          <div>
+             <div class="flex justify-between mb-1">
+                 <span style="font-weight: 600;">"Quick and accurate formatting"</span>
+                 <span style="color: #f5a623;"><i class="ph-fill ph-star"></i> 4.8</span>
+             </div>
+             <p style="color: var(--text-secondary); font-size: 0.9rem;">My SIP report looks incredibly professional now. Highly recommended!</p>
+             <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px;">- Sneha M.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. WORK STATUS SCREEN -->
+    <div class="screen" id="screen-status">
+      <div class="top-header reveal">
+        <div class="flex align-center gap-3">
+          <button class="btn" onclick="navigate('dashboard')" style="padding: 10px; border-color: var(--border-light);"><i class="ph ph-arrow-left"></i></button>
+          <h2>Work Timeline</h2>
+        </div>
+      </div>
+
+      <div class="clean-card reveal" style="padding: 32px; transition-delay: 0.1s;">
+        <div class="flex justify-between align-center mb-1">
+           <h3 style="font-size: 1.3rem;">DBMS Mini Project PPT</h3>
+           <h3 style="color: var(--accent-glow);">₹800</h3>
+        </div>
+        <p style="color: var(--text-secondary);" class="mb-3">Posted 2 days ago • Delivery Tomorrow</p>
+        
+        <div class="flex align-center gap-3 mb-3 pb-3" style="border-bottom: 1px solid var(--border-light);">
+          <img src="https://i.pravatar.cc/150?u=karan" alt="Karan" class="avatar" style="width:56px; height:56px;">
+          <div>
+            <p style="font-weight: 600; font-size: 1.05rem;">Assigned to: Karan V.</p>
+            <p style="font-size:0.9rem; color: var(--text-secondary); display:flex; align-items:center; gap: 4px;">
+               <i class="ph-fill ph-star" style="color: #f5a623;"></i> 4.9 <span style="opacity:0.5;">(24 logs)</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline mt-3">
+          <div class="timeline-item done">
+            <div class="timeline-node"><i class="ph ph-check"></i></div>
+            <div class="timeline-content">
+              <h4>Open (Work Posted)</h4>
+              <p>You uploaded requirements.</p>
+            </div>
+          </div>
+          <div class="timeline-item done">
+            <div class="timeline-node"><i class="ph ph-check"></i></div>
+            <div class="timeline-content">
+              <h4>Accepted</h4>
+              <p>Karan accepted the work offer.</p>
+            </div>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <h4 style="color: var(--text-primary);">In Progress</h4>
+              <p>Karan is actively working on it.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <h4>Submitted</h4>
+              <p>Awaiting file upload</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-content">
+              <h4>Completed</h4>
+              <p>Review & Release Payment</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn w-100 mt-3" style="font-weight: 600; border: 1px solid var(--border-light);"><i class="ph ph-chat-circle mr-2" style="margin-right: 8px;"></i> Message Karan</button>
+      </div>
+    </div>
+
+  </div> <!-- End Main Content -->
+
+  <!-- Bottom Navigation (Mobile Only) -->
+  <nav class="bottom-nav" id="bottom-nav" style="display: none;">
+    <button class="nav-item active" onclick="navigate('dashboard', this)">
+      <i class="ph ph-squares-four"></i>
+      Home
+    </button>
+    <button class="nav-item" onclick="navigate('marketplace', this)">
+      <i class="ph ph-compass"></i>
+      Browse
+    </button>
+    <button class="nav-item" onclick="navigate('post', this)">
+      <i class="ph ph-plus-circle"></i>
+      Post
+    </button>
+    <button class="nav-item" onclick="navigate('status', this)">
+      <i class="ph ph-activity"></i>
+      Status
+    </button>
+  </nav>
+
+</div>
+
+<script>
+  /* Quick mobile styling adjustments via JS */
+  window.addEventListener('resize', () => {
+    const avatar = document.getElementById('mobile-avatar');
+    if(avatar) {
+        if(window.innerWidth > 768) {
+           avatar.style.display = 'none';
+        } else {
+           avatar.style.display = 'block';
+        }
+    }
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>
